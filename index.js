@@ -1,6 +1,7 @@
 import express from "express";
 import { config_db } from "./database/config.js";
-import budgetRoute from "./routes/app.route.js"
+import budgetRoute from "./routes/budget.route.js"
+import budgetRoute from "./routes/spend.route.js"
 
 const app = express()
 

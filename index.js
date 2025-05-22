@@ -1,7 +1,7 @@
 import express from "express";
 import { config_db } from "./database/config.js";
 import budgetRoute from "./routes/budget.route.js"
-import budgetRoute from "./routes/spend.route.js"
+import spednRoute from "./routes/spend.route.js"
 
 const app = express()
 
@@ -9,6 +9,7 @@ const app = express()
 app.use(express.json())
 
 app.use("/api",budgetRoute)
+app.use("/api", spednRoute)
 
 app.get("/", (req, res) => {
   res.json("Hello World")

@@ -5,7 +5,7 @@ import {
   getBudgetById,
   updateBudget,
   deleteBudget,
-} from "../controllers/appController.js";
+} from "../controllers/budgetController.js";
 
 const router = Router();
 

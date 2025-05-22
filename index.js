@@ -1,13 +1,13 @@
 import express from "express";
 import { config_db } from "./database/config.js";
-import appRoute from "./routes/app.route.js"
+import budgetRoute from "./routes/app.route.js"
 
 const app = express()
 
 // Middleware
 app.use(express.json())
 
-app.use("/api",appRoute)
+app.use("/api",budgetRoute)
 
 app.get("/", (req, res) => {
   res.json("Hello World")

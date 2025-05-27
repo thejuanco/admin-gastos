@@ -75,3 +75,20 @@ export const updateSpend = async (req, res) => {
         return res.status(401).json({message: "Error al actualizar el gasto", error })
     }
 }
+
+export const deleteSpend = async (req, res) => {
+    try {
+        const idSpend = req.params.id
+
+        await Spend.destroy({
+            where: {
+                id: idSpend
+            }
+        })
+
+        res.status(201).json({message: "Gasto eliminado correctamente"})
+
+    } catch (error) {
+        return res.status(401).json({message: "Error al eliminar el gasto", error })
+    }
+}

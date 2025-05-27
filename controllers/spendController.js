@@ -52,3 +52,26 @@ export const getSpendById = async (req, res) => {
         return res.status(401).json({message: "Error al obtener el gasto", error })
     }
 }
+
+export const updateSpend = async (req, res) => {
+    try {
+       const { budget_Id, new_description, new_amount} = req.body
+
+       await Spend.update(
+        {
+            description: new_description,
+            amount: new_amount
+        },
+        {
+            where: {
+                id: budget_Id
+            }
+        }
+       )
+
+       res.status(201).json({message: "Gasto actualizado correctamente"})
+
+    } catch (error) {
+        return res.status(401).json({message: "Error al actualizar el gasto", error })
+    }
+}

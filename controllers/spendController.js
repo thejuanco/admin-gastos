@@ -8,7 +8,9 @@ export const createSpend = async (req, res) => {
         //Validad que el presupuesto existe
         const budgetPK = await Budget.findByPk(budget_Id)
         if(!budgetPK){
-            console.log("El presupuesto no existe")
+            res.status.json({ message: "El presupuesto no existe! "})
+        } else {
+            console.log(budgetPK instanceof Budget)
         }
 
         //Crear el gasto
@@ -16,8 +18,7 @@ export const createSpend = async (req, res) => {
             description,
             amount,
             budget_Id
-        }
-    )
+        })
 
         return res.status(201).json(newSpend)
     } catch (error) {

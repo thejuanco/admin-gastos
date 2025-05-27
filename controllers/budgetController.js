@@ -2,10 +2,11 @@ import { Budget } from '../models/index.js'
 
 export const createBudget = async (req, res) => {
     try {
-        const { budget_total } = req.body
+        const { budget_total, budget_description } = req.body
 
         const newBudget = await Budget.create({
-            budget_total
+            budget_total,
+            budget_description
         })
 
         return res.status(201).json(newBudget)

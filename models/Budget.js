@@ -5,6 +5,10 @@ const Budget = config_db.define("Budget", {
     budget_total: {
         type: DataTypes.FLOAT,
         allowNull: false,
+    },
+    budget_description : {
+        type: DataTypes.TEXT,
+        allowNull: false
     }
 })
 

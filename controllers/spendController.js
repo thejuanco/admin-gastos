@@ -26,3 +26,29 @@ export const createSpend = async (req, res) => {
         console.log(error)
     }
 }
+
+export const getAllSpends = async (req, res) => {
+    try {
+        const allSpends = await Spend.findAll()
+        res.status(201).json(allSpends)
+    } catch (error) {
+        return res.status(401).json({message: "Error al obtener los gastos", error })
+    }
+}
+
+export const getSpendById = async (req, res) => {
+    try {
+        const idSpend = req.params.id;
+
+        //Obtener los datos del gasto por el medio del id
+        const spend = await Spend.findByPk(idSpend)
+        if(!spend){
+            return res.status(400).json({message: "El gasto buscado no existe"})
+        }
+
+        res.status(200).json(spend)
+
+    } catch (error) {
+        return res.status(401).json({message: "Error al obtener el gasto", error })
+    }
+}

@@ -92,3 +92,13 @@ export const deleteSpend = async (req, res) => {
         return res.status(401).json({message: "Error al eliminar el gasto", error })
     }
 }
+
+export const deleteAllSpends = async (req, res) => {
+    try {
+        //TODO: Terminar esta funcionalidad
+       //await Spend.beforeDestroy
+
+    } catch (error) {
+        return res.status(401).json({message: "Error al eliminar los gastos: ", error })
+    }
+}
